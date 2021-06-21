@@ -3,14 +3,16 @@
     por ejemplo el atributo disabled-->
 <!-- Event binding permite escuchar los eventos del template y realizar diferentes acciones 
     el evento a capturar va entre ()-->
-<!-- Two way binding enlaza el template con el componente y se escuchan eventos de ambos lados-->
+<!-- Two way binding enlaza el template con el componente y se escuchan eventos de ambos lados.
+    Este concepto siempre requiere el modulo de FormsModule (importado en app.module), e integra
+    los conceptos de property binding y event binding. Ej: [(ngModel)]-->
 <button mat-raised-button color="primary" [disabled]='deshabilitar' (click)='agregarPersona()'>Agregar persona</button>
 <p>{{mensaje}}</p><br>
 <app-persona></app-persona><br>
 
 <mat-form-field class="example-form-field">
     <mat-label>Titulo Persona</mat-label>
-    <input matInput type="text" [(ngModel)]="titulo" (input)='modificarTitulo($event)'>
+    <input matInput type="text" [(ngModel)]="titulo">
     <button *ngIf="titulo" matSuffix mat-icon-button aria-label="Clear" (click)="titulo=''">
       <mat-icon>close</mat-icon>
     </button>
