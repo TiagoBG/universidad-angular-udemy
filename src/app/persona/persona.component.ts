@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
 })
 export class PersonaComponent {
 
-  constructor() { }
+  nombre:string = 'Rory';
+  apellido: string = 'Camelo';
+  edad: number = 27;
 
+  //Para el caso de tener atributos privados se accede a ellos a través de métodos
+  //Este método será llamado en el template como {{getEdad()}} y mostrará la información
+
+ /*  private edad: number = 27;
+
+  getEdad():number{
+    return this.edad;
+  } */
 }
