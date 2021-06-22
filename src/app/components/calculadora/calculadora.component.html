@@ -1,0 +1,28 @@
+<section>
+    <h1 id="titulo">Calculadora App</h1>
+    <form class="calculadora-form">
+        <mat-form-field class="calculadora-full-width">
+          <mat-label>Operando A</mat-label>
+          <input type="number" matInput [formControl]="operandoFormControl" placeholder="Ej. 1"
+            [(ngModel)]="operandoA">
+          <mat-error *ngIf="operandoFormControl.hasError('pattern') && !operandoFormControl.hasError('required')">
+            Por favor ingresa un número válido
+          </mat-error>
+          <mat-error *ngIf="operandoFormControl.hasError('required')">
+            Operando A es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="calculadora-full-width">
+            <mat-label>Operando B</mat-label>
+            <input type="number" matInput [formControl]="operandoFormControl" placeholder="Ej. 2" [(ngModel)]="operandoB">
+            <mat-error *ngIf="operandoFormControl.hasError('pattern') && !operandoFormControl.hasError('required')">
+              Por favor ingresa un número válido
+            </mat-error>
+            <mat-error *ngIf="operandoFormControl.hasError('required')">
+              Operando B es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        <button mat-raised-button color="accent" id="boton-calcular" (click)="sumarOperandos()">Sumar</button><br>
+      </form>
+      <mat-card id="resultado-card">Resultado: {{resultado}}</mat-card>
+</section>

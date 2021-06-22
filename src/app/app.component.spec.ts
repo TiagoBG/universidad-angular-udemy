@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'mi-primera-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mi-primera-app');
+    expect(app.usuario).toEqual('Tiago');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('mi-primera-app app is running!');
+    expect(compiled.querySelector('#titulo').textContent).toContain('Bienvenido: Tiago!');
   });
 });
