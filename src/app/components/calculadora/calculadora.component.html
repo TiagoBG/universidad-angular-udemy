@@ -3,26 +3,25 @@
     <form class="calculadora-form">
         <mat-form-field class="calculadora-full-width">
           <mat-label>Operando A</mat-label>
-          <input type="number" matInput [formControl]="operandoFormControl" placeholder="Ej. 1"
-            [(ngModel)]="operandoA">
-          <mat-error *ngIf="operandoFormControl.hasError('pattern') && !operandoFormControl.hasError('required')">
+          <input type="number" matInput [formControl]="operandoAFormControl" placeholder="Ej. 1">
+          <mat-error *ngIf="operandoAFormControl.hasError('pattern') && !operandoAFormControl.hasError('required')">
             Por favor ingresa un número válido
           </mat-error>
-          <mat-error *ngIf="operandoFormControl.hasError('required')">
+          <mat-error *ngIf="operandoAFormControl.hasError('required')">
             Operando A es <strong>requerido</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="calculadora-full-width">
             <mat-label>Operando B</mat-label>
-            <input type="number" matInput [formControl]="operandoFormControl" placeholder="Ej. 2" [(ngModel)]="operandoB">
-            <mat-error *ngIf="operandoFormControl.hasError('pattern') && !operandoFormControl.hasError('required')">
+            <input type="number" matInput [formControl]="operandoBFormControl" placeholder="Ej. 2" [(ngModel)]="operandoB">
+            <mat-error *ngIf="operandoBFormControl.hasError('pattern') && !operandoBFormControl.hasError('required')">
               Por favor ingresa un número válido
             </mat-error>
-            <mat-error *ngIf="operandoFormControl.hasError('required')">
+            <mat-error *ngIf="operandoBFormControl.hasError('required')">
               Operando B es <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
-        <button mat-raised-button color="accent" id="boton-calcular" (click)="sumarOperandos()">Sumar</button><br>
+        <button mat-raised-button color="accent" id="boton-calcular" (click)="sumarOperandos()" type="submit">Sumar</button><br>
       </form>
       <mat-card id="resultado-card">Resultado: {{resultado}}</mat-card>
 </section>

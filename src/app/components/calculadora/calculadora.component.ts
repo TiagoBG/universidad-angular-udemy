@@ -11,13 +11,19 @@ export class CalculadoraComponent {
   operandoB = 0;
   resultado = 0;
 
-  operandoFormControl = new FormControl('', [
+/*   Form Group
+ */  operandoAFormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern('[0-9 ]*')
+    Validators.pattern('(^-?0\.[0-9]*[1-9]+[0-9]*$)|(^-?[1-9]+[0-9]*((\.[0-9]*[1-9]+[0-9]*$)|(\.[0-9]+)))|(^-?[1-9]+[0-9]*$)|(^0$){1}')
+  ]);
+
+  operandoBFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('(^-?0\.[0-9]*[1-9]+[0-9]*$)|(^-?[1-9]+[0-9]*((\.[0-9]*[1-9]+[0-9]*$)|(\.[0-9]+)))|(^-?[1-9]+[0-9]*$)|(^0$){1}')
   ]);
   
-  sumarOperandos(){
-    this.resultado = this.operandoA + this.operandoB
+  sumarOperandos():number{
+    this.resultado = parseInt(Math.round(this.operandoA + this.operandoB * 100 / 100).toFixed(4))
     console.log(this.resultado)
     return this.resultado
   }
